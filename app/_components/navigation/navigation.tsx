@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "@/app/_components/navigation.module.css";
+import styles from "@/app/_components/navigation/navigation.module.css";
 
 export const Navigation = () => {
   const pathname = usePathname();
