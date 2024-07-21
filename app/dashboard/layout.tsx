@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 import { type Metadata } from "next";
-import Image from "next/image";
+import { Logo } from "@/app/_components/logo/logo";
 import styles from "@/app/page.module.css";
 
 export const metadata: Metadata = {
@@ -18,14 +18,7 @@ export default function DashboardLayout({
   return (
     <>
       <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+        <Logo />
         <h2 className={styles.heading}>Dashboard</h2>
       </div>
       {children}

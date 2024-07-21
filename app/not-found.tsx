@@ -1,17 +1,10 @@
-import Image from "next/image";
+import { Logo } from "@/app/_components/logo/logo";
 import styles from "@/app/page.module.css";
 
 export default function NotFound() {
   return (
-    <div className={styles.center}>
-      <Image
-        className={styles.logo}
-        src="/next.svg"
-        alt="Next.js Logo"
-        width={180}
-        height={37}
-        priority
-      />
+    <div className={`${styles.center} ${styles.notFound}`}>
+      <Logo />
       <h2 className={styles.heading}>404 - Page Not Found</h2>
     </div>
   );

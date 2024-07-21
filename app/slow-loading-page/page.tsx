@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Logo } from "@/app/_components/logo/logo";
 import styles from "@/app/page.module.css";
 
 export default async function SlowLoadingPage() {
@@ -7,14 +7,7 @@ export default async function SlowLoadingPage() {
 
   return (
     <div className={styles.center}>
-      <Image
-        className={styles.logo}
-        src="/next.svg"
-        alt="Next.js Logo"
-        width={180}
-        height={37}
-        priority
-      />
+      <Logo />
       <h2 className={styles.heading}>Slow Loading Page</h2>
     </div>
   );
