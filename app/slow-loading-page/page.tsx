@@ -1,14 +1,19 @@
 import { Logo } from "@/app/_components/logo/logo";
 import styles from "@/app/page.module.css";
+import { Suspense } from "react";
+import { SlowComponent } from "@/app/slow-loading-page/slow-component";
 
 export default async function SlowLoadingPage() {
-  // Simulate a slow loading page
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
   return (
     <div className={styles.center}>
       <Logo />
-      <h2 className={styles.heading}>Slow Loading Page</h2>
+      <Suspense
+        fallback={
+          <h3 className={styles.heading}>Loading content for you...</h3>
+        }
+      >
+        <SlowComponent />
+      </Suspense>
     </div>
   );
 }
