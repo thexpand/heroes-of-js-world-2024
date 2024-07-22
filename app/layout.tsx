@@ -2,6 +2,9 @@ import { type ReactNode } from "react";
 import { type Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Navigation } from "@/app/_components/navigation/navigation";
+import { PageSelector } from "@/app/_components/page-selector";
+import styles from "@/app/layout.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className={styles.main}>
+          {children}
+          <div className={styles.navigation}>
+            <Navigation />
+            <PageSelector />
+          </div>
+        </main>
+      </body>
     </html>
   );
 }

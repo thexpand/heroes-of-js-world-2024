@@ -16,7 +16,7 @@ export default function DashboardLayout({
   children: ReactNode;
 }>) {
   return (
-    <main className={styles.main}>
+    <>
       <div className={styles.center}>
         <Image
           className={styles.logo}
@@ -29,6 +29,6 @@ export default function DashboardLayout({
         <h2 className={styles.heading}>Dashboard</h2>
       </div>
       {children}
-    </main>
+    </>
   );
 }
