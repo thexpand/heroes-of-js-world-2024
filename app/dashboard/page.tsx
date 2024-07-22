@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "@/app/page.module.css";
 
-export default function Maintenance() {
+export default function Dashboard() {
   return (
     <main className={styles.main}>
       <div className={styles.center}>
@@ -13,9 +13,7 @@ export default function Maintenance() {
           height={37}
           priority
         />
-        <h2 className={styles.heading}>
-          Sorry, we’re upgrading our app right now. Check back soon!
-        </h2>
+        <h2 className={styles.heading}>Dashboard</h2>
       </div>
     </main>
   );
