@@ -4,6 +4,7 @@ export async function GET() {
   const data = {
     name: "John Doe",
     email: "john.doe@example.com",
+    timestamp: Date.now(),
   };
 
   // Artificial delay to simulate network latency
