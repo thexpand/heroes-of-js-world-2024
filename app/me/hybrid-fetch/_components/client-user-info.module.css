@@ -1,0 +1,7 @@
+.button {
+  padding: 0.5rem 0.7rem;
+}
+
+.button:not([disabled]) {
+  cursor: pointer;
+}
