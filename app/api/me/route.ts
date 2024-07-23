@@ -1,10 +1,13 @@
-export function GET() {
+export async function GET() {
   // Fetch data from source
   // ...
   const data = {
     name: "John Doe",
     email: "john.doe@example.com",
   };
+
+  // Artificial delay to simulate network latency
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return Response.json(data);
 }

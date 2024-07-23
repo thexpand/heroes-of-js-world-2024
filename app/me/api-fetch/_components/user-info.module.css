@@ -1,0 +1,8 @@
+.userInfo {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.userInfo h4 {
+  margin-bottom: 0.15rem;
+}
