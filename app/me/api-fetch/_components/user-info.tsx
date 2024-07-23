@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "@/app/me/api-fetch/_components/user-info.module.css";
+import styles from "@/app/me/user-info.module.css";
 
 export const UserInfo = () => {
   const [data, setData] = useState<{ name: string; email: string } | null>(
