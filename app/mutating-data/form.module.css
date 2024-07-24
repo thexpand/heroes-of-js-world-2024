@@ -11,3 +11,26 @@
   color: firebrick;
   white-space: pre-wrap;
 }
+
+.chat {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.chat > div {
+  display: grid;
+  gap: 0.25rem;
+  background: #222;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.chat small {
+  font-size: 65%;
+  color: darkgray;
+}
+
+.chat .pending {
+  opacity: 0.65;
+}
