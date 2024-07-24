@@ -2,3 +2,12 @@
   display: grid;
   gap: 1rem;
 }
+
+.success {
+  color: mediumseagreen;
+}
+
+.error {
+  color: firebrick;
+  white-space: pre-wrap;
+}
