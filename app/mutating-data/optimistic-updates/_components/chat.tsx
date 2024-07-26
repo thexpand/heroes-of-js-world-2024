@@ -1,13 +1,19 @@
 "use client";
 
-import { type ChangeEventHandler, useOptimistic, useState } from "react";
+import {
+  type ChangeEventHandler,
+  useOptimistic,
+  useState,
+  useTransition,
+} from "react";
 import { Message } from "@/app/mutating-data/optimistic-updates/_components/message";
-import { SendButton } from "@/app/mutating-data/optimistic-updates/_components/send-button";
 import { sendMessage } from "@/app/mutating-data/optimistic-updates/_components/send-message";
 import styles from "@/app/mutating-data/form.module.css";
 
 export const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
+
+  const [isPending, startTransition] = useTransition();
 
   const [optimisticMessages, addOptimisticMessage] = useOptimistic<
     Message[],
@@ -17,7 +23,7 @@ export const Chat = () => {
     { message: newMessage },
   ]);
 
-  const handleFormAction = async (data: FormData) => {
+  const handleFormAction = (data: FormData) => {
     const message = data.get("message")?.toString();
 
     if (!message) {
@@ -26,9 +32,11 @@ export const Chat = () => {
 
     addOptimisticMessage(message);
 
-    const deliveredMessage = await sendMessage(message);
+    startTransition(async () => {
+      const deliveredMessage = await sendMessage(message);
 
-    setMessages((currentMessages) => [...currentMessages, deliveredMessage]);
+      setMessages((currentMessages) => [...currentMessages, deliveredMessage]);
+    });
   };
 
   const [messageValue, setMessageValue] = useState("");
@@ -52,12 +60,15 @@ export const Chat = () => {
         <input
           type="text"
           name="message"
-          placeholder="Your message"
+          placeholder={isPending ? "" : "Your message"}
           value={messageValue}
           onChange={handleMessageValueChange}
           required
+          disabled={isPending}
         />
-        <SendButton />
+        <button type="submit" disabled={isPending}>
+          {isPending ? "Sending..." : "Send"}
+        </button>
       </form>
       <div className={styles.chat}>
         {optimisticMessages.toReversed().map(({ message, date }, index) => (
